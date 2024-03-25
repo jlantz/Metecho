@@ -418,7 +418,7 @@ def run_flow(*, cci, org_config, flow_name, project_path, user):
     orig_stdout, _ = p.communicate()
     if p.returncode:
         p = subprocess.run(
-            [command, "error", "info"], capture_output=True, env={"HOME": project_path}
+            [command, "error", "info"], capture_output=True, env=env
         )
         traceback = p.stdout.decode("utf-8")
         logger.warning(traceback)
